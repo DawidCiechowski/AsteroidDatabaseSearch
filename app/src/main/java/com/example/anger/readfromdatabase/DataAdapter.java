@@ -68,6 +68,7 @@ public class DataAdapter {
 
             sql += "ORDER BY AsteroidDiameter asc;";
 
+            Log.e(TAG, sql);
 
             Cursor mCur = mDB.rawQuery(sql, null);
 
@@ -75,12 +76,6 @@ public class DataAdapter {
                 do{
                     asteroids.add(addEntry(mCur));
                 } while(mCur.moveToNext());
-            }
-
-            Log.e(TAG, "LOL" + asteroids.get(4).toString());
-
-            for(int i = 0; i < asteroids.size(); i++) {
-                Log.e(TAG, String.valueOf(asteroids.get(i).name));
             }
 
             return asteroids;
